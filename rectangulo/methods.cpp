@@ -11,30 +11,30 @@ rectangle::rectangle() {
     width = 1;
 }
 
-void rectangle::setAltura(float a) {
-    length = a;
+void rectangle::setWidth(float a) {
+    width = a;
 }
 
-void rectangle::setBase(float b) {
-    width = b;
+void rectangle::setLength(float b) {
+    length = b;
 }
 
-float rectangle::getAltura() {
-    return length;
-}
-
-float rectangle::getBase() {
+float rectangle::getWidth() {
     return width;
 }
 
+float rectangle::getLength() {
+    return length;
+}
+
 float rectangle::area() {
-    float a = 0.0;
+    float a = length * width;
 
     return a;
 }
 
-float rectangle::perimetro() {
-    float p = 0.0;
+float rectangle::perimeter() {
+    float p = 2 * length + 2* width;
 
     return p;
 }

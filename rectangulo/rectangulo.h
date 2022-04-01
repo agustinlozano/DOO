@@ -6,20 +6,20 @@ using namespace std;
 
 class rectangle {
   private:
-      float length, width;
+      float width, length;
 
   public:
       rectangle(float, float);
       rectangle();
 
-      void setAltura(float a);
-      float getAltura();
+      void setWidth(float a);
+      float getWidth();
 
-      void setBase(float b);
-      float getBase();
+      void setLength(float b);
+      float getLength();
 
       float area();
-      float perimetro();
+      float perimeter();
 };
 
 #endif
