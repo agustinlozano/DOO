@@ -26,9 +26,9 @@ public:
         }
 
         // llenamos la matriz
-        for(unsigned i = 0; i < xmax; i++) {
-            for(unsigned j = 0; j < ymax; j++) {
-                m[i][j] = (T) i * j;
+        for (unsigned i = 0; i < xmax; i++) {
+            for (unsigned j = 0; j < ymax; j++) {
+                m[i][j] = (T) i + j;
             }
         }
 
@@ -52,11 +52,24 @@ public:
 	void setx(unsigned x) { xmax = x; }
 	void sety(unsigned y) { ymax = y; }
 
-	T *operator[](unsigned y) const { return m[y]; }
-    
-    void print() {
-        cout << "filas = " << getx() << " columnas = " << gety() << endl;
+    void printDimensions() {
+        cout << "Rows = " << getx() << " Columns = " << gety() << endl;
     }
+
+    void printMatrix() {
+        for (unsigned i = 0; i < getx(); i++) {
+            for (unsigned j = 0; j < gety(); j++) {
+                if (j < j-1) {
+                    cout << m[i][j] << ", ";
+                } else {
+                    cout << m[i][j] << endl;
+                }
+            }
+        }
+    }
+
+    // Sobrecargando operadores
+    T *operator[](unsigned y) const { return m[y]; }
 };
 
 #endif

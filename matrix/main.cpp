@@ -7,19 +7,26 @@
 // }
 
 int main() {
-    matriz<int> a(10, 10);
+    matriz<int> a(2, 2);
 	matriz<char> c(2, 2);
 
-	a.print();
-	c.print();
+	a.printDimensions();
+    cout << endl;
+    a.printMatrix();
+    cout << endl;
 
-	int i, j;
-	for(i=0; i<10; i++) {
-		for(j=0; j<10; j++) {
-			a[i][j]=i+j;
-			c[i][j]='A'+i+j;
-		}
-	}
+	// int i, j;
+	// for(i=0; i<10; i++) {
+	// 	for(j=0; j<10; j++) {
+	// 		a[i][j]=i+j;
+	// 		c[i][j]='A'+i+j;
+	// 	}
+	// }
+
+    // cout << endl;
+	a.printMatrix();
+    cout << endl;
+    cout << endl;
 
 	//f(a);
 	//cout << a << '\n';
