@@ -1,10 +1,10 @@
 #include "matriz.h"
 
-// void f(matriz<int> x) {
-//     cout << x << '\n';
-// 	    x[5][5] = 123;
-// 	    cout << x << '\n';
-// }
+ //void f(matriz<int> x) {
+ //       cout << x << '\n';
+ //	    x[5][5] = 123;
+ //	    cout << x << '\n';
+ //}
 
 int main() {
     matriz<int> a(2, 2);

@@ -36,7 +36,6 @@ public:
         setx(xmax);
         sety(ymax);
     }
-
     // Destructor
 	~matriz() {
         for(unsigned i = 0; i < xmax; i++) {
@@ -60,16 +59,34 @@ public:
         for (unsigned i = 0; i < getx(); i++) {
             for (unsigned j = 0; j < gety(); j++) {
                 if (j < j-1) {
-                    cout << m[i][j] << ", ";
+                    cout << '\t' << m[i][j];
                 } else {
-                    cout << m[i][j] << endl;
+                    cout << '\t' << m[i][j] << endl;
                 }
             }
         }
     }
 
     // Sobrecargando operadores
-    T *operator[](unsigned y) const { return m[y]; }
+    T *operator [](unsigned y) const { return m[y]; }
+
+    friend ostream& operator << (ostream &out, const matriz<int> &m) {
+        // Imprimir
+        /*
+        for (unsigned i = 0; i < m.getx(); i++) {
+            for (unsigned j = 0; j < m.gety(); j++) {
+                if (j < j-1) {
+                    os << '\t' << m[i][j];
+                } else {
+                    os << '\t' << m[i][j] << endl;
+                }
+            }
+        }
+        */
+
+        out << '\t' << m[1][1];
+        return out;
+    }
 };
 
 #endif
