@@ -12,13 +12,13 @@ template<class T> class matriz {
 public:
     // Constructores de clase
 	matriz(const matriz &mm) {
-        this.m = mm;
-        this.xmax = mm.xmax;
-        this.ymas = mm.ymax;
+        m = mm;
+        xmax = mm.xmax;
+        ymax = mm.ymax;
     }
 	matriz(unsigned xmax, unsigned ymax) {
         // indicamos la cantidada de filas
-        this->m = new T*[xmax];
+        this -> m = new T*[xmax];
 
         // agregamos las columnas por filas
         for (unsigned i = 0; i < xmax; i++) {
@@ -69,24 +69,20 @@ public:
 
     // Sobrecargando operadores
     T *operator [](unsigned y) const { return m[y]; }
+};
 
-    friend ostream& operator << (ostream &out, const matriz<int> &m) {
-        // Imprimir
-        /*
-        for (unsigned i = 0; i < m.getx(); i++) {
-            for (unsigned j = 0; j < m.gety(); j++) {
-                if (j < j-1) {
-                    os << '\t' << m[i][j];
-                } else {
-                    os << '\t' << m[i][j] << endl;
-                }
+ostream& operator << (ostream &out, const matriz<int> &m) {
+    // Imprimir
+    for (unsigned i = 0; i < m.getx(); i++) {
+        for (unsigned j = 0; j < m.gety(); j++) {
+            if (j < j-1) {
+                out << '\t' << m[i][j];
+            } else {
+                out << '\t' << m[i][j] << endl;
             }
         }
-        */
-
-        out << '\t' << m[1][1];
-        return out;
     }
-};
+    return out;
+}
 
 #endif
