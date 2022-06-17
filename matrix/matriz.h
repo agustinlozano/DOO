@@ -16,25 +16,25 @@ public:
         xmax = mm.xmax;
         ymax = mm.ymax;
     }
-	matriz(unsigned xmax, unsigned ymax) {
+	matriz(unsigned x, unsigned y) {
+	    // seteamos
+        setx(x);
+        sety(y);
+
         // indicamos la cantidada de filas
-        this -> m = new T*[xmax];
+        m = new T*[x];
 
         // agregamos las columnas por filas
-        for (unsigned i = 0; i < xmax; i++) {
-            m[i] = new T [ymax];
+        for (unsigned i = 0; i < x; i++) {
+            m[i] = new T [y];
         }
 
         // llenamos la matriz
-        for (unsigned i = 0; i < xmax; i++) {
-            for (unsigned j = 0; j < ymax; j++) {
-                m[i][j] = (T) i + j;
+        for (unsigned i = 0; i < x; i++) {
+            for (unsigned j = 0; j < x; j++) {
+                m[i][j] = (T) 40 + i + j;
             }
         }
-
-        // finalmente, seteamos los miembros restantes
-        setx(xmax);
-        sety(ymax);
     }
     // Destructor
 	~matriz() {
@@ -52,7 +52,7 @@ public:
 	void sety(unsigned y) { ymax = y; }
 
     void printDimensions() {
-        cout << "Rows = " << getx() << " Columns = " << gety() << endl;
+        cout << "\tRows = " << getx() << " Columns = " << gety() << endl;
     }
 
     void printMatrix() {
@@ -69,16 +69,20 @@ public:
 
     // Sobrecargando operadores
     T *operator [](unsigned y) const { return m[y]; }
+    template<class U>
+    friend ostream& operator << (ostream &out, matriz<U> &mm);
 };
 
-ostream& operator << (ostream &out, const matriz<int> &m) {
+
+template<class U>
+ostream& operator << (ostream &out, matriz<U> &mm) {
     // Imprimir
-    for (unsigned i = 0; i < m.getx(); i++) {
-        for (unsigned j = 0; j < m.gety(); j++) {
-            if (j < j-1) {
-                out << '\t' << m[i][j];
+    for (unsigned i = 0; i < mm.getx(); i++) {
+        for (unsigned j = 0; j < mm.gety(); j++) {
+            if (j < mm.gety()-1) {
+                out << '\t' << mm[i][j];
             } else {
-                out << '\t' << m[i][j] << endl;
+                out << '\t' << mm[i][j] << endl;
             }
         }
     }
